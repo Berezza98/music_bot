@@ -23,7 +23,7 @@ bot.on(/^\/music (.+)$/, (msg, props) => {
         console.log(tracks);
         let replyMarkup = bot.keyboard( tracks, {resize: true});
     
-        return bot.sendMessage(msg.from.id, 'Виберіть потрібний трек', {replyMarkup});
+        return bot.sendMessage(msg.from.id, 'Виберіть потрібний трек:', {replyMarkup});
     });
 });
 
