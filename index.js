@@ -7,12 +7,13 @@ const bot = new TeleBot({
    token: TOKEN,
    polling: {  
    },
-//    webhook: { 
-//     url: 'https://telegram-shop-bot2.herokuapp.com/',
-//     host: '0.0.0.0',
-//     port: process.env.PORT, 
-// },
-   usePlugins: ['askUser']
+   webhook: { 
+    url: 'https://roman-music-bot.herokuapp.com/',
+    host: '0.0.0.0',
+    port: process.env.PORT, 
+}
+// ,
+//    usePlugins: ['askUser']
 });
 
 bot.on(/^\/music (.+)$/, (msg, props) => {
@@ -36,6 +37,6 @@ bot.on(/^\d* (.+)/, (msg, props) => {
 
 bot.on('error', () => {
     return bot.sendMessage(msg.from.id, 'Щось пішло не так');
-})
+});
 
 bot.start();
