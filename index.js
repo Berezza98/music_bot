@@ -5,15 +5,14 @@ const {getPlaylist} = require('./getMusic');
 
 const bot = new TeleBot({
    token: TOKEN,
-   polling: {  
-   },
+//    polling: {  
+//    },
    webhook: { 
     url: 'https://roman-music-bot.herokuapp.com/',
     host: '0.0.0.0',
     port: process.env.PORT, 
-}
-// ,
-//    usePlugins: ['askUser']
+},
+   usePlugins: ['askUser']
 });
 
 bot.on(/^\/music (.+)$/, (msg, props) => {
