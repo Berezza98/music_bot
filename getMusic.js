@@ -15,8 +15,8 @@ function getPlaylist(name, params, done){
         }
         else if(params === 'getChosenSong'){
             console.log('song');
-            getChosenSong(body, (song) => {
-
+            getChosenSong(body, (songLink) => {
+                done(songLink);
             })
         }
       });
@@ -49,15 +49,8 @@ function getChosenSong(data, done){
             return;
         }
         let linkToSong = JSON.parse(body).url;
-        // saveAudio(linkToSong, () => {
-
-        // });
         done(linkToSong);
-    })
-}
-
-function saveAudio(link, done){
-    console.log(link);
+    });
 }
 
 

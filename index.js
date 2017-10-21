@@ -25,12 +25,17 @@ bot.on(/^\/music (.+)$/, (msg, props) => {
     });
 });
 
-bot.on(/^\d* .*/, (msg, props) => {
-    getPlaylist(msg, 'getChosenSong', (song) => {
-        console.log('send song');
-        return bot.sendAudio(msg.from.id, song);
+bot.on(/^\d* (.+)/, (msg, props) => {
+    const text = props.match[1];
+    console.log(text);
+    getPlaylist(text, 'getChosenSong', (songLink) => {
+        console.log(__dirname);
+        return bot.sendAudio(msg.from.id, songLink, {fileName: text});
     });
 });
 
+bot.on('error', () => {
+    return bot.sendMessage(msg.from.id, 'Щось пішло не так');
+})
 
 bot.start();
