@@ -14,9 +14,10 @@ const bot = new TeleBot({
 },
    usePlugins: ['askUser']
 });
-console.log(bot);
+console.log("BOT", bot);
 
 bot.on(/^\/music (.+)$/, (msg, props) => {
+    console.log("AAA");
     const text = props.match[1];
     getPlaylist(text, 'getAllSongs', (tracks) => {
         console.log(tracks);
@@ -33,10 +34,6 @@ bot.on(/^\d* (.+)/, (msg, props) => {
         console.log(__dirname);
         return bot.sendAudio(msg.from.id, songLink, {fileName: text});
     });
-});
-
-bot.on('error', () => {
-    return bot.sendMessage(msg.from.id, 'Щось пішло не так');
 });
 
 bot.start();
