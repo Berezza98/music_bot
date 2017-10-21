@@ -9,7 +9,6 @@ const bot = new TeleBot({
 //    },
    webhook: { 
     url: 'https://roman-music-bot.herokuapp.com/',
-    host: '0.0.0.0',
     port: process.env.PORT, 
 },
    usePlugins: ['askUser']
