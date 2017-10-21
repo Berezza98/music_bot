@@ -14,6 +14,7 @@ const bot = new TeleBot({
 },
    usePlugins: ['askUser']
 });
+console.log(bot);
 
 bot.on(/^\/music (.+)$/, (msg, props) => {
     const text = props.match[1];
